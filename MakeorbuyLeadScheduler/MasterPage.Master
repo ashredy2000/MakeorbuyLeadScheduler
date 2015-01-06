@@ -1,0 +1,471 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="MakeorbuyLeadScheduler.MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<link href="Styles/StyleSheet.css" rel="Stylesheet" type="text/css"/>
+<link rel="stylesheet" href="Styles\jquery-ui themes.css" />
+    <link rel="stylesheet" href="Styles\ui-1.10.4-themes-smoothness-jquery-ui.css" />
+    <link type="text/css" href="Styles/GridviewScroll.css" rel="stylesheet" />      
+    <script type="text/javascript" language="JavaScript" src="<%= ResolveUrl("~/Scripts/jquery-1.9.1.js") %>" ></script>
+    <script type="text/javascript" language="JavaScript" src="<%= ResolveUrl("~/Scripts/jquery-ui.js") %>" ></script>
+    <script type="text/javascript" language="JavaScript" src="<%= ResolveUrl("~/Scripts/jquery-ui-1.10.4.js") %>" ></script>
+     <script type="text/javascript" language="JavaScript" src="<%= ResolveUrl("~/Scripts/gridviewScroll.min.js") %>" ></script> 
+ 
+
+
+
+      <script type="text/javascript" language="JavaScript" src="<%= ResolveUrl("~/Scripts/jquery.min.js") %>" ></script>
+  <script type="text/javascript" language="JavaScript" src="<%= ResolveUrl("~/Scripts/jquery-ui.min.js") %>" ></script>
+ 
+  <script type="text/javascript" language="JavaScript" src="<%= ResolveUrl("~/Scripts/ajax_jquery.ui_1.10.2_jquery-ui.js") %>" ></script>
+  <script type="text/javascript" language="JavaScript" src="<%= ResolveUrl("~/Scripts/ajax_jquery.ui_1.10.2_jquery-ui.min.js") %>" ></script>
+ 
+ <script type="text/javascript" language="JavaScript" src="<%= ResolveUrl("~/Scripts/ui-1.10.4-jquery-ui.js") %>" ></script> 
+  <script type="text/javascript" language="JavaScript" src="<%= ResolveUrl("~/Scripts/jquery.form.js") %>" ></script>
+   
+   
+
+    <title>makeorbuy.com</title>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+     <script type="text/javascript" language="javascript">
+         window.onload = function () {
+             document.getElementById("txtUserName").focus();
+             $("#txtPswrd").keyup(function (event) {
+                 if (event.keyCode == 13) {
+                     $("#btn_login").onclick();
+                 }
+             });
+             $("#txtUserName").keyup(function (event) {
+                 if (event.keyCode == 13) {
+                     $("#btn_login").onclick();
+                 }
+             });
+         };
+
+         function warningalreadyexists() {
+             alert('User ID already exists ,Contact admin for Password!');
+         }
+         function checkempcodestatus() {
+             alert('Check your Employee Code and Status!');
+         }
+         function check2() {
+             alert('Check your Employee Code and Status!');
+         }
+         function warning2() {
+             alert('already password alloted to this UserID!');
+         }
+         function accountcreated() {
+             alert('User acount is Created. You can Login with this acount');
+         }
+         function loginerror() {
+             alert('Incorrect Login...Try again!');
+         }
+         function login() {
+             document.getElementById('light').style.display = 'block'; document.getElementById('fade').style.display = 'block';
+         }
+    </script>    
+    </asp:ContentPlaceHolder>    
+   
+    <style type="text/css">
+        .black_overlay {
+        display:none;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        background-color:black;
+        z-index:1001;
+        -moz-opacity: 0.8;
+        opacity:.80;
+        filter: alpha(opacity=80);
+}
+.white_content 
+{
+display:none;
+position: absolute;
+top: 25%;
+left: 35%;
+width: 35%;
+padding: 0px;
+border: 0px solid #6f6f6f;
+background-color: white;
+z-index:1002;
+overflow: auto;
+}
+        .style1
+        {
+            width: 100%;
+        }
+        .style4
+        {
+        }
+        .style5
+        {
+        }
+        .style6
+        {
+            width: 199px;
+        }
+        .style7
+        {
+            width: 388px;
+        }
+        .style8
+        {
+            height: 24px;
+        }
+         .a1
+        {
+            font-family:Verdana;    
+    font-size:12px;
+   color:Red;   
+    text-decoration:none;
+    font-weight:lighter;
+        }
+        .a1:hover
+        {
+            text-decoration:underline;
+        }
+         .a5
+        {
+            font-family:Verdana;    
+    font-size:medium;
+   color:#56bcff; 
+    text-decoration:none;
+    
+        }
+        .a5:hover
+        {
+            text-decoration:underline;
+        }
+        </style>
+   
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="wrapper"align="center">
+    <div id="Header">
+        <table class="style1">
+            <tr>
+                <td align="left" class="style5" valign="baseline">
+                   <div id="headwrapper">
+                       <table class="style1">
+                           <tr>
+                               <td class="style7">
+                                   &nbsp;</td>
+                               <td align="right">
+                                   &nbsp;</td>
+                               <td align="right" colspan="2">
+                                   <asp:Label ID="greeting_label" runat="server" style="color: #56BCFF"></asp:Label>
+                               </td>
+                           </tr>
+                           <tr>
+                               <td class="style7">
+                                   &nbsp;</td>
+                               <td colspan="2">
+                    <asp:Label ID="Label1" runat="server" CssClass="headerlabelstyle" 
+                        Text="Makeorbuy.com"></asp:Label>
+                               </td>
+                               <td align="right">
+                               <asp:LinkButton ID="login"  runat="server" 
+                                       Visible="True" href = "javascript:void(0)" onclientclick="login();" 
+                                       CssClass="a5" style="color: #56BCFF" >Login</asp:LinkButton>
+                                  
+                           
+                                     <asp:LinkButton ID="logout"  runat="server" ClientIDMode="Static" 
+                                       Visible="False" onclick="logout_Click" CssClass="a5" 
+                                       style="color: #56BCFF" >Logout</asp:LinkButton>
+                                         </td>
+                           </tr>
+                       </table>
+                    </div></td>
+            </tr>
+            <tr>
+                <td align="left" class="style4" valign="baseline">
+                    <table>
+                        <tr>
+                            <td>
+                    <asp:Menu ID="menu_prefab" runat="server" ClientIDMode="Static" 
+                        DisappearAfter="1000" DynamicHorizontalOffset="-140" DynamicVerticalOffset="19" 
+                        Font-Bold="False" Font-Names="Verdana" Font-Overline="False" Font-Size="Small" 
+                        Font-Strikeout="False"  Height="18px" 
+                        MaximumDynamicDisplayLevels="10" 
+                        RenderingMode="Table" StaticSubMenuIndent="12px" style=" margin-bottom: 8px;" 
+                        Width="200px" Visible="False">
+                        <DynamicHoverStyle BackColor="#B7B7B7" Width="140px" />
+                        <DynamicMenuItemStyle BackColor="#FFDC56" Font-Names="Verdana" 
+                            ForeColor="Black" Height="25px" HorizontalPadding="10px" />
+                        <Items>
+                            <asp:MenuItem Text="Prefabs" Value="Prefabs">
+                                <asp:MenuItem Text="New Lead" Value="New Lead" 
+                                    NavigateUrl="~/Pages/PrefabLeadEntry.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="Lead Follow up" Value="Lead Follow up" 
+                                    NavigateUrl="~/Pages/PrefabLeadFollowup.aspx"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Pages/PrefabDocSubmission.aspx" 
+                                    Text="Document Submission" Value="Document Submission"></asp:MenuItem>
+                                <asp:MenuItem Text="Lead Report" Value="Lead Report" 
+                                    NavigateUrl="~/Pages/PrefabLeadSummary.aspx"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Pages/PrefabLeadHistory.aspx" 
+                                    Text="Follow up History" Value="Follow up History"></asp:MenuItem>
+                            </asp:MenuItem>
+                        </Items>
+                        <StaticHoverStyle />
+                        <StaticMenuItemStyle CssClass="MenuItem" ItemSpacing="2px" Font-Names="Verdana" 
+                            ForeColor="Black" Font-Bold="True" />
+                        <StaticMenuStyle BorderColor="#FF9900" BorderStyle="None" />
+                    </asp:Menu>
+                            </td>
+                            <td>
+                    <asp:Menu ID="menu_retailHousing" runat="server" ClientIDMode="Static" 
+                        DisappearAfter="1000" DynamicHorizontalOffset="-165" DynamicVerticalOffset="19" 
+                        Font-Bold="False" Font-Names="Verdana" Font-Overline="False" Font-Size="Small" 
+                        Font-Strikeout="False"  Height="18px" 
+                        MaximumDynamicDisplayLevels="10" 
+                        RenderingMode="Table" StaticSubMenuIndent="12px" style=" margin-bottom: 8px;" 
+                        Width="200px" Visible="False">
+                        <DynamicHoverStyle BackColor="#B7B7B7" Width="165px" />
+                        <DynamicMenuItemStyle BackColor="#FFDC56" Font-Names="Verdana" 
+                            ForeColor="Black" Height="25px" HorizontalPadding="10px" />
+                        <Items>
+                            <asp:MenuItem Text="Retail Housing" Value="Retail Housing">
+                                <asp:MenuItem Text="New Lead" Value="New Lead" 
+                                    NavigateUrl="~/Pages/RetailHousingLead.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="Lead Follow up" Value="Lead Follow up" 
+                                    NavigateUrl="~/Pages/RetailHousingLeadFollowUp.aspx"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Pages/RetailHousingDocSubmission.aspx" 
+                                    Text="Document Submission" Value="Document Submission"></asp:MenuItem>
+                                <asp:MenuItem Text="Lead Report" Value="Lead Report" 
+                                    NavigateUrl="~/Pages/RetailHousingLeadSummary.aspx"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Pages/RetailHosingLeadHistory.aspx" 
+                                    Text="Follow up History" Value="Follow up History"></asp:MenuItem>
+                            </asp:MenuItem>
+                        </Items>
+                        <StaticHoverStyle />
+                        <StaticMenuItemStyle CssClass="MenuItem" ItemSpacing="2px" Font-Names="Verdana" 
+                            ForeColor="Black" Font-Bold="True" />
+                        <StaticMenuStyle BorderColor="#FF9900" BorderStyle="None" />
+                    </asp:Menu>
+                            </td>
+                            <td class="style6">
+                    <asp:Menu ID="menu_FFE" runat="server" ClientIDMode="Static" 
+                        DisappearAfter="1000" DynamicHorizontalOffset="-120" DynamicVerticalOffset="19" 
+                        Font-Bold="False" Font-Names="Verdana" Font-Overline="False" Font-Size="Small" 
+                        Font-Strikeout="False"  Height="18px" 
+                        MaximumDynamicDisplayLevels="10" 
+                        RenderingMode="Table" StaticSubMenuIndent="12px" style=" margin-bottom: 8px;" 
+                        Width="200px" Visible="False">
+                        <DynamicHoverStyle BackColor="#B7B7B7" Width="120px" />
+                        <DynamicMenuItemStyle BackColor="#FFDC56" Font-Names="Verdana" 
+                            ForeColor="Black" Height="25px" HorizontalPadding="10px" />
+                        <Items>
+                            <asp:MenuItem Text="FFE" Value="FFE">
+                                <asp:MenuItem Text="New Lead" Value="New Lead" 
+                                    NavigateUrl="~/Pages/FFELeadEntry.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="Lead Follow up" Value="Lead Follow up" 
+                                    NavigateUrl="~/Pages/FFELeadFollowup.aspx"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Pages/FFEDocumentSubmission.aspx" 
+                                    Text="Document Submission" Value="Document Submission"></asp:MenuItem>
+                                <asp:MenuItem Text="Lead Report" Value="Lead Report" 
+                                    NavigateUrl="~/Pages/FFELeadSummary.aspx"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Pages/FFELeadHistory.aspx" 
+                                    Text="Follow up History" Value="Follow up History"></asp:MenuItem>
+                            </asp:MenuItem>
+                        </Items>
+                        <StaticHoverStyle />
+                        <StaticMenuItemStyle CssClass="MenuItem" ItemSpacing="2px" Font-Names="Verdana" 
+                            ForeColor="Black" Font-Bold="True" />
+                        <StaticMenuStyle BorderColor="#FF9900" BorderStyle="None" />
+                    </asp:Menu>
+                            </td>
+                            <td class="style6">
+                    <asp:Menu ID="menu_Report" runat="server" ClientIDMode="Static" 
+                        DisappearAfter="1000" DynamicHorizontalOffset="-140" DynamicVerticalOffset="19" 
+                        Font-Bold="False" Font-Names="Verdana" Font-Overline="False" Font-Size="Small" 
+                        Font-Strikeout="False"  Height="18px" 
+                        MaximumDynamicDisplayLevels="10" 
+                        RenderingMode="Table" StaticSubMenuIndent="12px" style=" margin-bottom: 8px;" 
+                        Width="200px" Visible="False">
+                        <DynamicHoverStyle BackColor="#B7B7B7" Width="140px" />
+                        <DynamicMenuItemStyle BackColor="#FFDC56" Font-Names="Verdana" 
+                            ForeColor="Black" Height="25px" HorizontalPadding="10px" />
+                        <Items>
+                            <asp:MenuItem Text="Reports" Value="Reports">
+                                <asp:MenuItem Text="Lead Summary" Value="Lead Summary" 
+                                    NavigateUrl="~/Pages/Lead Report.aspx"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Pages/Lead Status Report.aspx" 
+                                    Text="Lead Status Report" Value="Lead Status Report"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Pages/OverView Next Follow up.aspx" 
+                                    Text="Overview of Next Follow up" Value="Overview of Next Follow up">
+                                </asp:MenuItem>
+                            </asp:MenuItem>
+                        </Items>
+                        <StaticHoverStyle />
+                        <StaticMenuItemStyle CssClass="MenuItem" ItemSpacing="2px" Font-Names="Verdana" 
+                            ForeColor="Black" Font-Bold="True" />
+                        <StaticMenuStyle BorderColor="#FF9900" BorderStyle="None" />
+                    </asp:Menu>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            </table>
+                
+                                <div id="light" class="white_content">
+ <table cellpadding=0 cellspacing=0 border=0 style="background-color:#ffdc56;" width="100%"><tr><td height="16px"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">
+     <img src="Resources/close-icon.png" 
+         style="border-style: none; border-color: inherit; border-width: 0px; height: 17px; width: 16px;" 
+         align="right"/></a></td></tr>
+<tr><td style="padding-left:16px;padding-right:16px;padding-bottom:16px"> 
+ <table class="style53" align="center">
+                <tr>
+                    <td align="center" class="style42" colspan="4">
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td align="center" class="style42" colspan="4">
+                        <strong>
+                        <asp:Label ID="Label5" runat="server" Text="User Login" CssClass="style62" 
+                            style="font-family: Verdana; font-size: medium; color: #0080C0"></asp:Label>
+                        </strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" class="style42" colspan="4">
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td align="center" class="style52" valign="middle"> <span class="style67">
+                        <asp:Label ID="Label7" runat="server" Text="Emp Code" style="color: #0080C0; font-family: Verdana; font-size: small;" 
+                            CssClass="style67"></asp:Label>
+                    </td>
+                    <td align="justify" colspan="3">
+                        <asp:TextBox ID="txtUserName" runat="server" CssClass="textboxstyle" 
+                            style="font-family: Verdana; font-size: small" Width="112px" 
+                            ClientIDMode="Static" ></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                            ControlToValidate="txtUserName" CssClass="style44" 
+                            ErrorMessage="RequiredFieldValidator" ValidationGroup="login">*</asp:RequiredFieldValidator>
+                       
+          </td>
+                </tr>
+                <tr>
+                    <td align="center" class="style52">
+                        
+                        &nbsp;</td>
+                    <td align="justify" colspan="3" class="style38">
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td align="center" class="style52">
+                        
+                        <span class="style67">
+                        <asp:Label ID="Label6" runat="server" Text=" Password" style="color: #0080C0" 
+                            CssClass="style34"></asp:Label>
+                    </td>
+                    <td align="justify" colspan="3" class="style38">
+                        <span class="style34">
+                        </span>
+                        </span>
+                        <asp:TextBox ID="txtPswrd" runat="server" TextMode="Password" CssClass="textboxstyle" 
+                            style="font-family: Verdana; font-size: small" Width="112px" ></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                            ControlToValidate="txtPswrd" CssClass="style44" 
+                            ErrorMessage="RequiredFieldValidator" ValidationGroup="login">*</asp:RequiredFieldValidator>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" class="style52">
+                        
+                        &nbsp;</td>
+                    <td align="justify" colspan="3" class="style38">
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="style54">
+                        </td>
+                    <td align="left" colspan="3" class="style55">
+                        <asp:CheckBox ID="CheckBox1" runat="server" 
+                            Text="Remember Me" 
+                            style="color: #0080C0; font-family: Verdana; font-size: small;" 
+                            CssClass="style67" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="style54">
+                        &nbsp;</td>
+                    <td align="left" colspan="3" class="style55">
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="style51">
+                    </td>
+                    <td colspan="2">
+                        <asp:Button ID="btn_adduser" runat="server" onclick="btn_adduser_Click" 
+                            Text="Add" CssClass="styled-button-1" Visible="False" />
+                        <asp:Button ID="btn_OK" runat="server" 
+                             onclick="btn_OK_Click" Text="Sign In" 
+                         
+                            CssClass="styled-button-1" ValidationGroup="login" 
+                            ToolTip="Click on for Login" Visible="False"  />
+                    </td>
+                    <td class="style41">
+                        <asp:Button ID="Cancel" runat="server" 
+                           onclick="Cancel_Click" Text="Cancel" 
+                            
+                            ValidationGroup="cancel" ToolTip="Click on for cancel Login" 
+                            CssClass="styled-button-1" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="style51">
+                        &nbsp;</td>
+                    <td colspan="2">
+                        &nbsp;</td>
+                    <td class="style41">
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="style8">
+                        <asp:CheckBox ID="chkNewUser" runat="server" CssClass="style59" 
+                            Text="New User" AutoPostBack="True" 
+                            oncheckedchanged="chkNewUser_CheckedChanged" />
+                        </td>
+                    <td colspan="2" class="style8">
+                        </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="style8">
+                        &nbsp;</td>
+                    <td colspan="2" class="style8">
+                        &nbsp;</td>
+                </tr>
+                <tr class="style67">
+                    <td class="style57" align="center" colspan="4">
+                        <a href="#" class="style64"><span class="style50">forgot password?</span></a></td>
+                </tr>
+                <tr class="style67">
+                    <td class="style58" align="center" colspan="4">
+                        </td>
+                </tr>
+                </table>
+</td></tr>
+</table>
+</div>
+<div id="fade" class="black_overlay"></div>
+        </div>
+    <div id="content"> 
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+        </div>
+        <div id="Footer">
+            <asp:HiddenField ID="hdn_val" runat="server" ClientIDMode="Static" Value="1" />
+           </div>
+    </div>
+    </form>
+</body>
+</html>

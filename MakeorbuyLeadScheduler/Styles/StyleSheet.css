@@ -1,0 +1,88 @@
+﻿body 
+{
+    width:1200px;
+    margin:0 auto;
+}
+#wrapper
+{
+  
+}
+    .MenuItem
+    {
+    -webkit-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+	-moz-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+	box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+    height: 16px;
+    text-align: center;
+    top : 208px;
+    left: 1224px;
+    z-index: 2;
+	-webkit-border-radius:5px;
+	background-color:#ffdc56;
+	color:#6f6f6f;
+	border-radius:5px;	
+	padding:2px 4px;
+	border:none;
+	font-family:verdana,'Helvetica Neue',Arial,sans-serif;
+	font-size:12px;
+	font-weight:900;
+	text-transform:uppercase;
+	font-weight:bolder;	
+	text-shadow:Black 0 1px 0
+   }
+#Footer
+{
+    font-family:Verdana;
+    font-size:small;
+    width:1200px;
+    height:20px;
+   
+}
+#Header
+{
+    font-family:Verdana;
+    font-size:small;
+    width:1200px;
+    
+     
+}
+#headwrapper
+{
+    background-color
+}
+#Content
+{
+    font-family:Verdana;
+    font-size:small;
+    width:1200px;
+    height:150px;
+    
+}
+.headerlabelstyle
+{
+    font-family: Verdana;
+    font-size: xx-large;
+    font-weight: bold;
+    color: #6f6f6f;
+}
+#childdiv
+{
+    width:1200px;
+    
+   
+}
+.tablestyle
+{
+    width:1000px;
+    
+            font-family: Verdana;
+            font-size: medium;
+            color: #6f6f6f;
+            text-decoration: none;
+            border-radius: 5px;
+            background-color: #ffdc56;
+            border-style: solid;
+            border-color: #ffdc56;
+            border-width: thin;
+   
+}
